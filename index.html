@@ -382,6 +382,9 @@
                     'aria-label': "搜尋 Line 名字或遊戲 ID"
                   })
                 ),
+                React.createElement('div', { className: "text-right text-gray-600 text-sm mb-4" },
+                  `目前顯示成員數量: ${filteredEntries.length}`
+                ),
                 loading ? (
                   React.createElement('div', { className: "text-center text-gray-600 text-lg font-medium mt-8" }, "載入中...")
                 ) : (
