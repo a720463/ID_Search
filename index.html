@@ -124,7 +124,7 @@
         // components/EntryForm.tsx content (JSX converted to React.createElement)
         const EntryForm = ({ onSave, editingEntry, onCancelEdit }) => {
           const [lineName, setLineName] = useState('');
-          const [gameId, setGameId] = useState('');
+          const [gameId, setGameId] = useState('ᴷᴾღ'); // Default value for gameId
           const [isFormValid, setIsFormValid] = useState(false);
 
           useEffect(() => {
@@ -133,7 +133,7 @@
               setGameId(editingEntry.gameId);
             } else {
               setLineName('');
-              setGameId('');
+              setGameId('ᴷᴾღ'); // Reset to default when not editing
             }
           }, [editingEntry]);
 
@@ -153,13 +153,13 @@
             };
             onSave(formData, editingEntry?.id);
             setLineName('');
-            setGameId('');
+            setGameId('ᴷᴾღ'); // Reset to default after save
           }, [lineName, gameId, editingEntry, onSave, isFormValid]);
 
           const handleCancel = useCallback(() => {
             onCancelEdit();
             setLineName('');
-            setGameId('');
+            setGameId('ᴷᴾღ'); // Reset to default on cancel
           }, [onCancelEdit]);
 
           return (
@@ -190,7 +190,7 @@
                   id: "gameId",
                   value: gameId,
                   onChange: (e) => setGameId(e.target.value),
-                  placeholder: "輸入遊戲 ID",
+                  placeholder: "輸入遊戲 ID (預設為 ᴷᴾღ)", // Updated placeholder
                   className: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500",
                   required: true
                 })
